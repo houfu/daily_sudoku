@@ -10,7 +10,7 @@
 * `SMTP_USER` -- (**required**) The name of the user for logging into the SMTP server. For Outlook and Google, this is your email address.
 * `SMTP-PWD` -- (**required**) The password used for logging in. For Google's Gmail, you may need to set up an App password to avoid 2FA.
 
-The script runs pending jobs every 5 hours.
+The script runs pending jobs every 3 hours.
 
 This package was meant to be dockerised and run from a server. 
 If the email is not sent, you can check the logs -- `docker logs <container_name>`. 

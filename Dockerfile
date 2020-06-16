@@ -20,7 +20,7 @@ WORKDIR /app
 RUN pip install poetry
 
 RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+    && poetry install --no-interaction --no-ansi --no-dev
 
 # Copy all the files from current source directory(from your system) to
 # Docker container in /app directory
