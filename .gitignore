@@ -1,0 +1,6 @@
+/daily_sudoku.egg-info/
+/.python-version
+/.idea/
+/daily_sudoku/.idea/
+*/.pytest_cache/
+/tests/.coverage
