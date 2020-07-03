@@ -1,9 +1,9 @@
 #  Copyright MIT License (c) 2020. Ang Hou Fu
 
 import os
+import time
 from datetime import datetime
 from email.message import EmailMessage
-import time
 from smtplib import SMTP
 
 import requests
@@ -14,7 +14,7 @@ def job():
     now = datetime.now()
     r = requests.get(
         f"http://www.dailysudoku.com/sudoku//pdf/{now.year}/"
-        f"{now.strftime('%m')}/{now.strftime('%Y-%m-%d')}_S1_N1.pdf",
+        f"{now.strftime('%m')}/{now.strftime('%Y-%m')}-{now.strftime('%e').strip()}_S1_N1.pdf",
         timeout=5)
     print(f'{datetime.now()}: Getting daily sudoku: {r.url}')
     if r.status_code != 404:
