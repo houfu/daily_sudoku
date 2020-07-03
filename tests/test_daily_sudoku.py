@@ -1,12 +1,11 @@
 from datetime import datetime
-from email.message import EmailMessage
 from smtplib import SMTP
 from unittest.mock import DEFAULT
 
 import pytest
 
-from daily_sudoku.main import job
 from daily_sudoku import __version__
+from daily_sudoku.main import job
 
 
 def test_version():
@@ -15,7 +14,8 @@ def test_version():
 
 def test_job(requests_mock, mocker):
     now = datetime.now()
-    url = f"http://www.dailysudoku.com/sudoku//pdf/{now.year}/{now.strftime('%m')}/{now.strftime('%Y-%m-%d')}_S1_N1.pdf"
+    url = f"http://www.dailysudoku.com/sudoku//pdf/{now.year}/{now.strftime('%m')}/{now.strftime('%Y-%m')}-" \
+          f"{now.strftime('%e').strip()}_S1_N1.pdf"
     mocker.patch.dict('os.environ', {
         'PRINT_EMAIL': 'test@dest.com',
         'SMTP_SERVER': 'smtp.test.com',
